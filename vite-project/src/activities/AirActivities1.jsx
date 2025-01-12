@@ -11,16 +11,22 @@ function AirActivities1() {
 
   return (
     <div className={styles.mainAct1}>
-      <p>How about we start by using a greener means of transportatioin</p>
-      <p>
-        Travel <span onClick={showActivity} className={`${styles.moreButton}`}>➕</span>
-      </p>
-      {isActive && 
+      <p className={styles.title}>Here are some ways to improve air quality🌫</p>
+      
       <div className={styles.mainActivity}>
-        <p>Distance travelled: <input value={travelled} onChange={e=>setTravelled(e.target.value)} placeholder='In kms'/>
-        <button className={styles.contributeButton}>Contribute</button>
-        </p>
-      </div>}
+
+        <div className={styles.first}>
+        <div className={styles.head}>
+           🚵‍♀️Travel by Foot or Cycle <span onClick={showActivity} className={`${styles.moreButton}`}>➕</span>
+        </div>
+
+        {isActive && <div className={styles.body}>Distance travelled: <input value={travelled} onChange={e=>setTravelled(e.target.value)} placeholder='In kms'/>
+          <button className={styles.contributeButton}>Contribute</button>
+        </div>}
+
+        </div>
+
+      </div>
     </div>
   )
 }
