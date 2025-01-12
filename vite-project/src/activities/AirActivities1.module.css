@@ -10,5 +10,14 @@
 }
 
 .moreButton{
-  
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+input{
+  width: 50px;
+}
+
+.contributeButton{
+  float: right;
 }
