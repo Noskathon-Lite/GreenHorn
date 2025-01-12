@@ -8,15 +8,14 @@ import { GraphDataProvider } from "./contexts/GraphDataProvider";
 import { WeatherDataProvider } from "./contexts/WeatherDataProvider";
 import ScrollToTop from "./components/ScrollToTop";
 
-// import AirActivities1 from "./activities/AirActivities1";
-// import { CarbonCalcProvider } from "./contexts/CarbonCalcProvider";
+import { CarbonCalcProvider } from "./contexts/CarbonCalcProvider";
 
 function App() {
   return (
     <WeatherDataProvider>
       <GraphDataProvider>
-        {/* <ScrollToTop /> */}
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="contributions" element={<Contributions />} />
