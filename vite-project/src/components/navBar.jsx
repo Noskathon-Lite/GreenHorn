@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom"
 
 import styles from './NavBar.module.css'
-import logo from '../assests/logo.png'
+import logo from '../assets/logo.png'
 import { useState } from "react";
 
 function NavBar() {
  const [darkMode, setDarkMode] = useState(false);
 
- function setDarkMode(){
-    document.documentElement.classList.toggle('dark-made');
+ function setDark(){
+    document.documentElement.classList.toggle('dark-mode');
     setDarkMode(!darkMode);
 
  }
@@ -21,10 +21,10 @@ function NavBar() {
         </NavLink>
       </div>
 <ul>
-    <li><Navlink to='/'>Home</Navlink></li>
-    <li><Navlink to='/contributions'>Contribution</Navlink></li>
-    <li><Navlink to='/aboutus'>AboutUs</Navlink></li>
-    <li><Navlink to='/profile'>Profile</Navlink></li>
+    <li><NavLink to='/'>Home</NavLink></li>
+    <li><NavLink to='/contributions'>Contribution</NavLink></li>
+    <li><NavLink to='/aboutus'>AboutUs</NavLink></li>
+    <li><NavLink to='/profile'>Profile</NavLink></li>
     <li><span onClick={() =>setDark()}>{darkMode ? '🌙' : '🌞'}</span></li>
     
     </ul>
@@ -32,3 +32,5 @@ function NavBar() {
  )
 
 }
+
+export default NavBar
