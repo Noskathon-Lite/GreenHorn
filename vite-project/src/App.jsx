@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import AirActivities1 from "./activities/AirActivities1";
+
 function App() {
   return (
         <div>
-          Hello BISHAL
-             
+          <AirActivities1 />
         </div>
   );
 }
