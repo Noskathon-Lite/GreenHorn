@@ -1,0 +1,34 @@
+.airMain{
+  max-width: 80vw;
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'rubik', sans-serif;
+}
+
+.bad{
+  font-size: 1.4rem;
+  color: darkred;
+}
+
+.bad strong{
+  font-size: 1.7rem;
+  color: red;
+}
+
+.good{
+  font-size: 1.4rem;
+  color: darkseagreen;
+}
+
+.good strong{
+  font-size: 1.7rem;
+  color: yellowgreen;
+}
+
+.heading span{
+  font-size: 1.7rem;
+}
+
+.actionBox{
+  margin-top: 50px;
+}
