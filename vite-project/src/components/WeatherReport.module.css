@@ -1,0 +1,85 @@
+.weatherBoard{
+  height: 80vh;
+  width: 80vw;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 1px whitesmoke;
+  background-color: var(--weather-back);
+  margin: 50px auto;
+  font-family: roboto, 'sans-seriff';
+  overflow: hidden;
+}
+
+.locationWeather{
+  margin: 25px 50px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeLocation, .weather{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time{
+  color: yellowgreen;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.location{
+  font-size: 1.5rem;
+  color: goldenrod;
+}
+
+.weatherEmoji span{
+  font-size: 4rem;
+}
+
+.weatherTitle{
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: gold;
+}
+
+.weatherData{
+  font-size: 1.3rem;
+  font-weight: bolder;
+  color: coral;
+}
+
+.airQuality{
+  width: 0%;
+  height: 80px;
+  margin: 50px auto;
+}
+
+@media (max-width: 900px){
+  .weatherBoard{
+    height: 55vh;
+    width: 80vw;
+  }
+
+  .locationWeather{
+    margin: 15px 30px 0;
+  }
+
+  .time{
+    font-size: 1.5rem;
+  }
+  
+  .location{
+    font-size: 1rem;
+  }
+
+  .weatherData{
+    font-size: 1rem;
+  }
+
+  .airQuality{
+    width: 90%;
+    height: 80px;
+    margin: 30px auto;
+  }
+}

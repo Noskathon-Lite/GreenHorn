@@ -1,10 +1,12 @@
-import NavBar from "../components/navBar";
+import NavBar from "../components/NavBar"
 
-function AboutUs(){
-    return ( 
-       <NavBar />
-    );
-    
-    
+function AboutUs() {
+  return (
+    <div>
+      <NavBar />
+      About Us
+    </div>
+  )
 }
+
 export default AboutUs

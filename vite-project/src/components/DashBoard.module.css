@@ -1,0 +1,60 @@
+.dashBoard{
+  height: 70vh;
+  width: 80vw;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 1px whitesmoke;
+  background-color: var(--dashboard-back);
+  margin: 50px auto;
+  font-family: roboto, 'sans-seriff';
+  overflow: hidden;
+}
+
+.textPart{
+  margin: 20px 0 40px 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.streak, .footPrint, .level{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title{
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.value{
+  color: darkblue;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.graphsPart{
+  display: flex;
+  margin-left: 20px;
+}
+
+.barGraph{
+  width: 70%;
+}
+
+.pieChart{
+  width: 30%;
+}
+
+@media (max-width: 900px){
+  .dashBoard{
+    height: 55vh;
+    width: 90vw;
+  }
+  .title{
+    font-size: 1.2rem;
+  }
+  
+  .value{
+    font-size: 1.2rem;
+  }
+}
