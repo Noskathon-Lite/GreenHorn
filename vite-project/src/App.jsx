@@ -7,21 +7,26 @@ import AboutUs from "./pages/AboutUs";
 import { GraphDataProvider } from "./contexts/GraphDataProvider";
 import { WeatherDataProvider } from "./contexts/WeatherDataProvider";
 import ScrollToTop from "./components/ScrollToTop";
-import Profile from "./pages/Profile";
 
-import AirActivities1 from "./activities/AirActivities1";
-import { CarbonCalcProvider } from "./context/CarbonCalcProvider";
+// import AirActivities1 from "./activities/AirActivities1";
+// import { CarbonCalcProvider } from "./contexts/CarbonCalcProvider";
 
 function App() {
   return (
+    <WeatherDataProvider>
+      <GraphDataProvider>
+        {/* <ScrollToTop /> */}
       <BrowserRouter>
-      <Routes>
-      <Route index element={<HomePage />} />
-            <Route path="contributions" element={<Contributions />} />
-            <Route path="aboutUs" element={<AboutUs />} />
-            <Route path="profile" element={<Profile />} />
-      </Routes>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="contributions" element={<Contributions />} />
+          <Route path="aboutUs" element={<AboutUs />} />
+          <Route path="profile" element={<Profile />} />
+        </Routes>
       </BrowserRouter>
+      </GraphDataProvider>
+    </WeatherDataProvider>
+      
   );
 }
 
