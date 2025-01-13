@@ -2,6 +2,7 @@ import { useWeather } from '../contexts/WeatherDataProvider'
 import styles from './AirPollution.module.css'
 import AirActivities1 from '../activities/AirActivities1'
 import EnergyActivities1 from '../activities/EnergyActivities1';
+import WaterActivities from '../activities/WaterActivities';
 
 function AirPollution() {
   const { airIndex } = useWeather();
@@ -14,6 +15,7 @@ function AirPollution() {
         <p className={`${styles.heading} ${styles.good}`}>Air quality index of <strong>{airIndex}</strong> is very good. Let's work on something more relevant<span>🤝</span></p>
         <div className={styles.actionBox}>
           <EnergyActivities1 />
+          <WaterActivities />
       </div>
       </div>
     );
@@ -27,6 +29,7 @@ function AirPollution() {
       <div className={styles.actionBox}>
         <AirActivities1 />
         <EnergyActivities1 />
+        <WaterActivities />
       </div>
     </div>
   )
