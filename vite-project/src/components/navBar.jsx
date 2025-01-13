@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import styles from './NavBar.module.css'
 import logo from '../assets/logo.png'
+import logoo from '../assets/logoo.png'
 import { useState } from "react";
 
 function NavBar() {
@@ -15,7 +16,8 @@ function NavBar() {
     <nav className={styles.nav}>
       <div className={styles.logo}>
         <NavLink to='/homePage'>
-          <img src={logo} alt='logo'/>
+          
+          <img src={logoo} alt='logoo'/>
         </NavLink>
       </div>
       <ul>
