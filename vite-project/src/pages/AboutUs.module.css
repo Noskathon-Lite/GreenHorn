@@ -1,0 +1,53 @@
+.container {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 2.5rem;
+  color: #2c6b2f;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.mission {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.imageWrapper {
+  margin: 30px 0;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .description,
+  .mission {
+    font-size: 1rem;
+  }
+}

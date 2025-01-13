@@ -21,7 +21,7 @@ function NavBar() {
       <ul>
         <li><NavLink to='/homePage'>Home</NavLink></li>
         <li><NavLink to='/contributions'>Contributions</NavLink></li>
-        {/* <li><NavLink to='/aboutUs'>About Us</NavLink></li> */}
+        <li><NavLink to='/aboutUs'>About Us</NavLink></li>
         <li><NavLink to='/profile'>Profile</NavLink></li>
         <li><span onClick={() =>setDark()}>{darkMode ? '🌙' : '🌞'}</span></li>
       </ul>
