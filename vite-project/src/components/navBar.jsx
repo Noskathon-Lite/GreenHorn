@@ -14,12 +14,12 @@ function NavBar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.logo}>
-        <NavLink to='/'>
+        <NavLink to='/homePage'>
           <img src={logo} alt='logo'/>
         </NavLink>
       </div>
       <ul>
-        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/homePage'>Home</NavLink></li>
         <li><NavLink to='/contributions'>Contributions</NavLink></li>
         <li><NavLink to='/aboutUs'>About Us</NavLink></li>
         <li><NavLink to='/profile'>Profile</NavLink></li>
