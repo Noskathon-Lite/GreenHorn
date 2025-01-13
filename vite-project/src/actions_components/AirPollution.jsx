@@ -1,6 +1,7 @@
 import { useWeather } from '../contexts/WeatherDataProvider'
 import styles from './AirPollution.module.css'
 import AirActivities1 from '../activities/AirActivities1'
+import EnergyActivities1 from '../activities/EnergyActivities1';
 
 function AirPollution() {
   const { airIndex } = useWeather();
@@ -22,6 +23,7 @@ function AirPollution() {
 
       <div className={styles.actionBox}>
         <AirActivities1 />
+        <EnergyActivities1 />
       </div>
     </div>
   )

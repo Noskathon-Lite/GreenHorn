@@ -1,0 +1,80 @@
+.mainEnergy {
+  width: 80%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2d6a4f;
+}
+
+.totalSaved {
+  text-align: center;
+  background: #edf6f9;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.savedValue {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1b4332;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activity {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  background: #f8f9fa;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 10px;
+  color: #2a9d8f;
+}
+
+.body {
+  margin-top: 15px;
+}
+
+input {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button {
+  background: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #21867a;
+}
