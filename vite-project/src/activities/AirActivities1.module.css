@@ -1,65 +1,61 @@
-.mainAct1{
-  /* border: 1px solid black; */
+.mainAct1 {
   width: 80vw;
-  /* height: 500px; */
   margin: 0 auto;
-  font-family: press, 'sans-serrif';
+  font-family: 'Press', 'sans-serif';
   padding: 35px;
 }
 
-.mainActivity{
+.mainActivity {
   display: flex;
   align-items: center;
   width: 100%;
 }
 
-.first{
+.first {
   display: flex;
   flex-direction: column;
   text-align: left;
   gap: 25px;
-  /* align-items: flex-start; */
   justify-content: center;
   width: 100%;
   font-size: 1.3rem;
 }
 
-.head{
+.head {
   margin-top: 30px;
-  font-family: rubik, sans-serif;
+  font-family: 'Rubik', sans-serif;
   font-weight: bold;
   font-size: 1.3rem;
   color: darkcyan;
 }
 
-.body{
+.body {
   margin-top: 20px;
 }
 
-.title{
+.title {
   color: blueviolet;
   font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 20px;
 }
 
-.moreButton{
+.moreButton {
   float: right;
   cursor: pointer;
 }
 
-input{
+.input {
   border: 1px solid gainsboro;
-  width: 70px;
+  width: 80px;
   padding: 3px 5px;
   border-radius: 5px;
   font-size: 1rem;
   margin-left: 20px;
 }
 
-.contributeButton{
+.contributeButton {
   float: right;
-  /* margin-right: 40px; */
   border: none;
   background-color: orangered;
   padding: 5px 10px;
@@ -68,13 +64,19 @@ input{
   font-size: 1rem;
 }
 
-@media (max-width: 900px){
-  input{
-    width: 60px;
+@media (max-width: 900px) {
+  .input {
+    width: 70px;
     margin-left: 5px;
   }
-  
-  .contributeButton{
+
+  .contributeButton {
     padding: 3px 7px;
   }
+}
+
+p {
+  font-size: 1rem;
+  color: darkgreen;
+  font-weight: 500;
 }
