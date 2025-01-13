@@ -12,6 +12,9 @@ function AirPollution() {
     return(
       <div className={styles.airMain}>
         <p className={`${styles.heading} ${styles.good}`}>Air quality index of <strong>{airIndex}</strong> is very good. Let's work on something more relevant<span>🤝</span></p>
+        <div className={styles.actionBox}>
+          <EnergyActivities1 />
+      </div>
       </div>
     );
   }
