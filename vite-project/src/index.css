@@ -18,7 +18,7 @@
 html{
   background-color: var(--background-color);
   transition: filter 0.5s;
-  height: 3000px;
+  /* height: 3000px; */
   padding-top: 80px;
 }
 
