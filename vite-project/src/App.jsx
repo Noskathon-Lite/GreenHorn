@@ -4,6 +4,10 @@ import HomePage from "./pages/HomePage";
 import Profile from "./pages/Profile";
 import Contributions from "./pages/Contributions";
 import AboutUs from "./pages/AboutUs";
+
+import Login from "./components/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
+
 import { GraphDataProvider } from "./contexts/GraphDataProvider";
 import { WeatherDataProvider } from "./contexts/WeatherDataProvider";
 import ScrollToTop from "./components/ScrollToTop";
@@ -17,10 +21,17 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route index element={<HomePage />} />
-          <Route path="contributions" element={<Contributions />} />
-          <Route path="aboutUs" element={<AboutUs />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="homePage" element={<HomePage />} />
+          <Route index element={<Login />} />
+          <Route path="contributions" element={<ProtectedRoute>
+              <Contributions />
+            </ProtectedRoute>} />
+          <Route path="aboutUs" element={<ProtectedRoute>
+              <AboutUs />
+            </ProtectedRoute>} />
+          <Route path="profile" element={<ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
       </GraphDataProvider>

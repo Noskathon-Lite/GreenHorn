@@ -11,6 +11,7 @@
     "server": "json-server --watch data/graphsData.json --port 8000"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.47.12",
     "chart.js": "^4.4.7",
     "chartjs": "^0.3.24",
     "react": "^18.3.1",

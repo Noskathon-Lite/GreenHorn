@@ -4,12 +4,35 @@ import styles from './AirActivities1.module.css'
 function AirActivities1() {
   const [travelled, setTravelled] = useState(null);
   const [activeSections, setActiveSections] = useState({});
+  const [savedCarbon, setSavedCarbon] = useState({});
 
   function toggleActivity(section) {
     setActiveSections((prev) => ({
       ...prev,
       [section]: !prev[section], // Toggle the specific section
     }));
+  }
+
+  function contribute(type, travelled){
+    switch (type){
+      case 'foortOrCycle': {
+        setSavedCarbon(prev => ({
+          ...prev,
+          [type]: (prev[type] || 0) + travelled*160
+        }));
+        break;
+      }
+
+      case 'electricVechile': {
+        setSavedCarbon(prev => ({
+          ...prev,
+          [type]: (prev[type] || 0) + travelled*160-travelled*50
+        }));
+        break
+      }
+
+      default: return
+    }
   }
 
   return (
@@ -25,7 +48,9 @@ function AirActivities1() {
           </div>
 
           {activeSections['footOrCycle'] && <div className={styles.body}>Distance travelled on Foot/Cycle: <input value={travelled} onChange={e=>setTravelled(e.target.value)} placeholder='In kms'/>
-            <button className={styles.contributeButton}>Contribute</button>
+            <button className={styles.contributeButton} onClick={()=>{
+              contribute('footOrCycle', travelled)
+            }}>Contribute</button>
           </div>}
 
           <div className={styles.head}>
@@ -33,7 +58,9 @@ function AirActivities1() {
           </div>
 
           {activeSections['electricVechile'] && <div className={styles.body}>Distance travelled on Electric Vechile: <input value={travelled} onChange={e=>setTravelled(e.target.value)} placeholder='In kms'/>
-            <button className={styles.contributeButton}>Contribute</button>
+            <button className={styles.contributeButton} onClick={()=>{
+              contribute('electricVechile', travelled)
+            }}>Contribute</button>
           </div>}
 
         </div>
