@@ -3,7 +3,6 @@ import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import styles from './AirActivities1.module.css';
 
 function AirActivities1() {
-  const [travelled, setTravelled] = useState(0);
   const [activeSections, setActiveSections] = useState({});
   const [savedCarbon, setSavedCarbon] = useState({
     footOrCycle: 0,
@@ -14,6 +13,14 @@ function AirActivities1() {
     solarEnergy: 0,
   });
 
+  const [travelledDistances, setTravelledDistances] = useState({
+    footOrCycle: 0,
+    electricVechile: 0,
+    publicTransport: 0,
+    carpooling: 0,
+    electricScooter: 0,
+  });
+
   function toggleActivity(section) {
     setActiveSections((prev) => ({
       ...prev,
@@ -21,7 +28,8 @@ function AirActivities1() {
     }));
   }
 
-  function contribute(type, travelled) {
+  function contribute(type) {
+    const travelled = travelledDistances[type];
     if (travelled <= 0) return; 
     let carbonSaved = 0;
 
@@ -54,13 +62,17 @@ function AirActivities1() {
         return;
     }
 
-    
     setSavedCarbon((prev) => ({
       ...prev,
       [type]: (prev[type] || 0) + carbonSaved,
     }));
 
-    if (type !== 'solarEnergy') setTravelled(0);
+    if (type !== 'solarEnergy') {
+      setTravelledDistances((prev) => ({
+        ...prev,
+        [type]: 0,
+      }));
+    }
   }
 
   return (
@@ -73,7 +85,7 @@ function AirActivities1() {
 
       <div className={styles.mainActivity}>
         <div className={styles.first}>
-         
+          
           <div className={styles.head}>
             🚵‍♀️ Travel by Foot or Cycle 
             <span 
@@ -85,24 +97,23 @@ function AirActivities1() {
 
           {activeSections['footOrCycle'] && (
             <div className={styles.body}>
-              Distance travelled on Foot/Cycle:
+              Distance travelled:
               <input
                 type="number"
-                value={travelled}
-                onChange={(e) => setTravelled(e.target.value)}
+                value={travelledDistances.footOrCycle}
+                onChange={(e) => setTravelledDistances((prev) => ({ ...prev, footOrCycle: e.target.value }))}
                 placeholder="In kms"
                 min="0"
               />
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('footOrCycle', travelled)}
+                onClick={() => contribute('footOrCycle')}
               >
                 Contribute
               </button>
             </div>
           )}
 
-         
           <div className={styles.head}>
             🚋 Use Electric Vehicles
             <span
@@ -114,24 +125,23 @@ function AirActivities1() {
 
           {activeSections['electricVechile'] && (
             <div className={styles.body}>
-              Distance travelled on Electric Vehicle:
+              Distance travelled:
               <input
                 type="number"
-                value={travelled}
-                onChange={(e) => setTravelled(e.target.value)}
+                value={travelledDistances.electricVechile}
+                onChange={(e) => setTravelledDistances((prev) => ({ ...prev, electricVechile: e.target.value }))}
                 placeholder="In kms"
                 min="0"
               />
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('electricVechile', travelled)}
+                onClick={() => contribute('electricVechile')}
               >
                 Contribute
               </button>
             </div>
           )}
 
-          
           <div className={styles.head}>
             🚍 Use Public Transport
             <span
@@ -143,24 +153,23 @@ function AirActivities1() {
 
           {activeSections['publicTransport'] && (
             <div className={styles.body}>
-              Distance travelled by Public Transport:
+              Distance travelled:
               <input
                 type="number"
-                value={travelled}
-                onChange={(e) => setTravelled(e.target.value)}
+                value={travelledDistances.publicTransport}
+                onChange={(e) => setTravelledDistances((prev) => ({ ...prev, publicTransport: e.target.value }))}
                 placeholder="In kms"
                 min="0"
               />
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('publicTransport', travelled)}
+                onClick={() => contribute('publicTransport')}
               >
                 Contribute
               </button>
             </div>
           )}
 
-         
           <div className={styles.head}>
             🚗 Carpooling
             <span
@@ -172,24 +181,23 @@ function AirActivities1() {
 
           {activeSections['carpooling'] && (
             <div className={styles.body}>
-              Distance travelled with Carpooling:
+              Distance travelled:
               <input
                 type="number"
-                value={travelled}
-                onChange={(e) => setTravelled(e.target.value)}
+                value={travelledDistances.carpooling}
+                onChange={(e) => setTravelledDistances((prev) => ({ ...prev, carpooling: e.target.value }))}
                 placeholder="In kms"
                 min="0"
               />
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('carpooling', travelled)}
+                onClick={() => contribute('carpooling')}
               >
                 Contribute
               </button>
             </div>
           )}
 
-         
           <div className={styles.head}>
             🛴 Use Electric Scooter
             <span
@@ -201,24 +209,23 @@ function AirActivities1() {
 
           {activeSections['electricScooter'] && (
             <div className={styles.body}>
-              Distance travelled on Electric Scooter:
+              Distance travelled:
               <input
                 type="number"
-                value={travelled}
-                onChange={(e) => setTravelled(e.target.value)}
+                value={travelledDistances.electricScooter}
+                onChange={(e) => setTravelledDistances((prev) => ({ ...prev, electricScooter: e.target.value }))}
                 placeholder="In kms"
                 min="0"
               />
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('electricScooter', travelled)}
+                onClick={() => contribute('electricScooter')}
               >
                 Contribute
               </button>
             </div>
           )}
 
-         
           <div className={styles.head}>
             ☀️ Use Solar Energy
             <span
@@ -233,7 +240,7 @@ function AirActivities1() {
               <p>By using solar energy, your household can save up to 200g of carbon emissions per day.</p>
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('solarEnergy', 0)}
+                onClick={() => contribute('solarEnergy')}
               >
                 Contribute
               </button>
