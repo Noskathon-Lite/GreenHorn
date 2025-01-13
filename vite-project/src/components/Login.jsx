@@ -17,9 +17,8 @@ const Login = ({ setSession }) => {
     } else {
       alert("Login successful!");
 
-      // Get session after successful login
-      const { data: session } = await supabase.auth.getSession();  // Using getSession() instead of session()
-      setSession(session);  // Set the session state
+      const { data: session } = await supabase.auth.getSession();  
+      setSession(session); 
 
       navigate('homePage');
     }
