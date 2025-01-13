@@ -1,18 +1,16 @@
 import { useState } from 'react';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import styles from './AirActivities1.module.css';
 
 function AirActivities1() {
-  const [travelledFootCycle, setTravelledFootCycle] = useState('');
-  const [travelledElectricVehicle, setTravelledElectricVehicle] = useState('');
+  const [travelled, setTravelled] = useState(0);
+  const [activeSections, setActiveSections] = useState({});
   const [savedCarbon, setSavedCarbon] = useState({
     footOrCycle: 0,
-    electricVehicle: 0,
-  });
-  const [activeSections, setActiveSections] = useState({
-    footOrCycle: false,
-    electricVehicle: false,
+    electricVechile: 0,
   });
 
+  // Toggle section visibility
   function toggleActivity(section) {
     setActiveSections((prev) => ({
       ...prev,
@@ -20,95 +18,101 @@ function AirActivities1() {
     }));
   }
 
+  // Calculate and store carbon savings
   function contribute(type, travelled) {
-    const travelledNum = parseFloat(travelled);
-    if (isNaN(travelledNum)) return; 
+    if (travelled <= 0) return; // Prevent negative or zero contributions
 
-    let newSavedCarbon = { ...savedCarbon };
+    let carbonSaved = 0;
 
     switch (type) {
       case 'footOrCycle':
-        newSavedCarbon[type] += travelledNum * 160;
+        carbonSaved = travelled * 160; // Carbon saved by foot or cycle
         break;
 
-      case 'electricVehicle':
-        newSavedCarbon[type] += travelledNum * 160 - travelledNum * 50;
+      case 'electricVechile':
+        carbonSaved = travelled * 160 - travelled * 50; // Electric vehicle calculation
         break;
 
       default:
         return;
     }
 
-    setSavedCarbon(newSavedCarbon);
+    // Update the saved carbon state with the new contribution
+    setSavedCarbon((prev) => ({
+      ...prev,
+      [type]: (prev[type] || 0) + carbonSaved,
+    }));
+
+    // Reset the travelled distance after contribution
+    setTravelled(0);
   }
 
   return (
     <div className={styles.mainAct1}>
       <p className={styles.title}>Here are some ways to improve air quality🌫</p>
+      
+      {/* Total Carbon Saved Display */}
+      <div className={styles.totalCarbon}>
+        <h2>Total Carbon Saved Today: {Object.values(savedCarbon).reduce((acc, val) => acc + val, 0)} g</h2>
+      </div>
 
       <div className={styles.mainActivity}>
         <div className={styles.first}>
+          {/* Foot or Cycle Activity */}
           <div className={styles.head}>
-            🚵‍♀️ Travel by Foot or Cycle{' '}
-            <span
-              onClick={() => toggleActivity('footOrCycle')}
-              className={styles.moreButton}
-            >
-              ➕
+            🚵‍♀️ Travel by Foot or Cycle 
+            <span 
+              onClick={() => toggleActivity("footOrCycle")} 
+              className={`${styles.moreButton}`}>
+              {activeSections['footOrCycle'] ? <FaChevronUp /> : <FaChevronDown />}
             </span>
           </div>
 
           {activeSections['footOrCycle'] && (
             <div className={styles.body}>
-              Distance travelled on Foot/Cycle: 
+              Distance travelled on Foot/Cycle:
               <input
                 type="number"
-                value={travelledFootCycle}
-                onChange={(e) => setTravelledFootCycle(e.target.value)}
+                value={travelled}
+                onChange={(e) => setTravelled(e.target.value)}
                 placeholder="In kms"
-                className={styles.input}
+                min="0"
               />
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('footOrCycle', travelledFootCycle)}
+                onClick={() => contribute('footOrCycle', travelled)}
               >
                 Contribute
               </button>
-              <p>
-                Carbon saved: {savedCarbon.footOrCycle.toFixed(2)} g
-              </p>
             </div>
           )}
 
+          {/* Electric Vehicle Activity */}
           <div className={styles.head}>
-            🚋 Use Electric Vehicles{' '}
+            🚋 Use Electric Vehicles
             <span
-              onClick={() => toggleActivity('electricVehicle')}
-              className={styles.moreButton}
-            >
-              ➕
+              onClick={() => toggleActivity("electricVechile")}
+              className={`${styles.moreButton}`}>
+              {activeSections['electricVechile'] ? <FaChevronUp /> : <FaChevronDown />}
             </span>
           </div>
 
-          {activeSections['electricVehicle'] && (
+          {activeSections['electricVechile'] && (
             <div className={styles.body}>
-              Distance travelled on Electric Vehicle: 
+              Distance travelled on Electric Vehicle:
               <input
                 type="number"
-                value={travelledElectricVehicle}
-                onChange={(e) => setTravelledElectricVehicle(e.target.value)}
+                value={travelled}
+                onChange={(e) => setTravelled(e.target.value)}
                 placeholder="In kms"
-                className={styles.input}
+                min="0"
               />
               <button
                 className={styles.contributeButton}
-                onClick={() => contribute('electricVehicle', travelledElectricVehicle)}
+                onClick={() => contribute('electricVechile', travelled)}
               >
                 Contribute
               </button>
-              <p>
-                Carbon saved: {savedCarbon.electricVehicle.toFixed(2)} g
-              </p>
             </div>
           )}
         </div>

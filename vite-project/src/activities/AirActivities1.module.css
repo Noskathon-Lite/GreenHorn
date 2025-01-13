@@ -1,7 +1,7 @@
 .mainAct1 {
   width: 80vw;
   margin: 0 auto;
-  font-family: 'Press', 'sans-serif';
+  font-family: press, 'sans-serif';
   padding: 35px;
 }
 
@@ -23,7 +23,7 @@
 
 .head {
   margin-top: 30px;
-  font-family: 'Rubik', sans-serif;
+  font-family: rubik, sans-serif;
   font-weight: bold;
   font-size: 1.3rem;
   color: darkcyan;
@@ -40,14 +40,26 @@
   margin-bottom: 20px;
 }
 
+/* Display for total carbon saved */
+.totalCarbon {
+  background-color: #fffbf2;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid #ffa500;
+  margin-bottom: 25px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: green;
+}
+
 .moreButton {
   float: right;
   cursor: pointer;
 }
 
-.input {
+input {
   border: 1px solid gainsboro;
-  width: 80px;
+  width: 70px;
   padding: 3px 5px;
   border-radius: 5px;
   font-size: 1rem;
@@ -65,18 +77,12 @@
 }
 
 @media (max-width: 900px) {
-  .input {
-    width: 70px;
+  input {
+    width: 60px;
     margin-left: 5px;
   }
 
   .contributeButton {
     padding: 3px 7px;
   }
-}
-
-p {
-  font-size: 1rem;
-  color: darkgreen;
-  font-weight: 500;
 }
