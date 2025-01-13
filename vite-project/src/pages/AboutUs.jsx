@@ -6,7 +6,7 @@ function AboutUs() {
     <div className={styles.container}>
       <NavBar />
       <section className={styles.content}>
-        <h1 className={styles.heading}>About Us</h1>
+        <h1 className={styles.heading}>Team GreenHorn</h1>
         <p className={styles.description}>
           GreenHorn is a team dedicated to creating a positive impact on the environment. Our app
           encourages users to track their daily actions and make sustainable choices to help improve

@@ -15,7 +15,7 @@ function Profile({ setSession }) {
   return (
     <div className={styles.container}>
       <NavBar />
-      <h1 className={styles.heading}>Profile</h1>
+      <h1 className={styles.heading}>Hey there!!!</h1>
       <p className={styles.message}>Welcome to your profile!</p>
       <button className={styles.button} onClick={handleLogout}>Logout</button>
     </div>
