@@ -43,7 +43,7 @@ function App() {
             <Route path="homePage" element={<HomePage />} />
             <Route path="/" index element={<Login setSession={setSession} />} />
             <Route path="contributions" element={<ProtectedRoute session={session}><Contributions /></ProtectedRoute>} />
-            <Route path="aboutUs" element={<ProtectedRoute session={session}><AboutUs /></ProtectedRoute>} />
+            {/* <Route path="aboutUs" element={<ProtectedRoute session={session}><AboutUs /></ProtectedRoute>} /> */}
             <Route path="profile" element={<ProtectedRoute session={session}><Profile /></ProtectedRoute>} />
           </Routes>
         </BrowserRouter>
