@@ -2,11 +2,14 @@ import { useState } from 'react'
 import styles from './AirActivities1.module.css'
 
 function AirActivities1() {
-  const [isActive, setIsActive] = useState(false);
   const [travelled, setTravelled] = useState(null);
+  const [activeSections, setActiveSections] = useState({});
 
-  function showActivity(){
-    setIsActive(!isActive);
+  function toggleActivity(section) {
+    setActiveSections((prev) => ({
+      ...prev,
+      [section]: !prev[section], // Toggle the specific section
+    }));
   }
 
   return (
@@ -16,13 +19,22 @@ function AirActivities1() {
       <div className={styles.mainActivity}>
 
         <div className={styles.first}>
-        <div className={styles.head}>
-           🚵‍♀️Travel by Foot or Cycle <span onClick={showActivity} className={`${styles.moreButton}`}>➕</span>
-        </div>
 
-        {isActive && <div className={styles.body}>Distance travelled: <input value={travelled} onChange={e=>setTravelled(e.target.value)} placeholder='In kms'/>
-          <button className={styles.contributeButton}>Contribute</button>
-        </div>}
+          <div className={styles.head}>
+            🚵‍♀️ Travel by Foot or Cycle <span onClick={() => toggleActivity("footOrCycle")} className={`${styles.moreButton}`}>➕</span>
+          </div>
+
+          {activeSections['footOrCycle'] && <div className={styles.body}>Distance travelled on Foot/Cycle: <input value={travelled} onChange={e=>setTravelled(e.target.value)} placeholder='In kms'/>
+            <button className={styles.contributeButton}>Contribute</button>
+          </div>}
+
+          <div className={styles.head}>
+            🚋 Use electric vechiles <span onClick={() => toggleActivity("electricVechile")} className={`${styles.moreButton}`}>➕</span>
+          </div>
+
+          {activeSections['electricVechile'] && <div className={styles.body}>Distance travelled on Electric Vechile: <input value={travelled} onChange={e=>setTravelled(e.target.value)} placeholder='In kms'/>
+            <button className={styles.contributeButton}>Contribute</button>
+          </div>}
 
         </div>
 
